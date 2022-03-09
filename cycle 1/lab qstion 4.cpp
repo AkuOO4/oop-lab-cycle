@@ -1,47 +1,77 @@
 
 #include <iostream>
+#include <cstring>
 using namespace std;
-class strng
+class string
 {
-	string s1, s2,sum;
+	char str;
+	int len;
 	public:
-	void put_data(string, string);
-	void compare(void);
-	void concat(void);
+	string(){
+	len=0;
+	str= new char[len+1];
+	}
+	string(const char *s)
+	{
+	len=strlen(s);
+	str=new char[len+1];
+	strcpy(str,s);
+	}
+	void put_data()
+	{cin>>str;}
+	void show_data()
+	{cout<<str<<endl;
+	cout<<str<<endl;}
+	
+	void compare(string,string);
+	void concat(string,string);
 	void len(void);
 
 };
 
-void strng::put_data(string a, string b)
-{
-	s1 = a, s2 = b;
-}
 
-void strng::compare(void)//comparison
-{
-	if (s1 == s2)
-		cout << "both are same\n";
+void string::compare(string s1,string s2)//comparison
+{   
+	int a,b;
+	a=strlen(len(s1.str);
+	b=strlen(s1.str);
+	if(a>b){
+	cout<<s1.str<<"is larger\n";}
+	else if (a<b){
+	cout<<s1.str<<"is smaller \n";}
 	else
-		cout << "the strings are different\n";
-}
+	  cout<<"both are same"<<endl;
 
-void strng::concat(void)//concatination
+} 
+
+void strng::concat(string s1,string s2)//concatination
 {
-	sum = s1 + s2;
-	cout << "after concatination\n" << sum << endl;
+    len=a.len+b.len;
+    delete str;
+    str=new cha[len+1];
+    strcpy(str,s1.str);
+    strcat(str,s2.str);
 }
 
 void strng::len(void)//length
 {
-	cout << "lenght of s1: " << s1.size() << endl
-		<< "length of s2: " << s2.size();
+	cout<strlen(str);
 }
 
 int main()
 {
-	strng a;
-	a.put_data("hello", "world");
-	a.compare();
-	a.concat();
-	a.len();
+	string st1,st2,st3;
+	cout<<"enter string 1\n";
+	st1.put_data()
+	st1.len();
+	cout<<"enter string 2\n";
+	st2.put_data()
+	st2.len();
+	cout<<"comparing \n";
+	st3.compare(st1,st2)
+	cout<<"\nconcatinating\n";
+	st3.concat(st1,st2);
+	cout<<"finding length\n";
+	
+	st3.len();
 }
