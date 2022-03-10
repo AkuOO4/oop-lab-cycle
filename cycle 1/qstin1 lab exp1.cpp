@@ -30,17 +30,17 @@ void stud::calc_grade(void)
 {
     int avg = (sub1 + sub2 + sub3) / 3;
     if (avg >= 91)
-        grade= "A + ";
+        grade= "A+";
     else if (avg >= 81)
         grade= "A";
     else if (avg >= 71)
-        grade ="B + ";
+        grade ="B+";
     else if (avg >= 61)
-        grade ="C + ";
+        grade ="C+";
     else if (avg >= 51)
         grade= "C";
     else if (avg >= 41)
-        grade = "D + ";
+        grade = "D+";
     else
         grade="D";
     cout << "\naverage: " << avg;
