@@ -69,15 +69,17 @@ int main()
 	String st1, st2, st3;
 	cout << "enter string 1\n";
 	st1.put_data();
-		st1.length();
+	cout<<"\nlength of string 1\n";
+	st1.length();
 	cout << "enter string 2\n";
 	st2.put_data();
-		st2.length();
+	cout<<"\nlength of string 2\n";
+	st2.length();
 	cout << "comparing \n";
 	st3.compare(st1, st2);
-		cout << "\nconcatinating\n";
+	cout << "\nconcatinating\n";
 	st3.concat(st1, st2);
-	cout << "finding length\n";
-
+	cout << "length after concatination is\n";
 	st3.length();
+	cout<<endl;
 }
