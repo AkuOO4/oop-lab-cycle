@@ -1,21 +1,21 @@
 #include <iostream>
 using namespace std;
 
-
 class stud
 {
-    int rollno,sub1,sub2,sub3;
+    int roll_no,sub1,sub2,sub3;
     string name,grade;
     
 public:
     void data_manip(void);
-    string calc_grade(void);
+    void calc_grade(void);
+    void disp_data(void);
 };
 
 void stud::data_manip(void)
 {
     cout << "enter roll\n";
-    cin>>rollno;
+    cin>>roll_no;
     cout << "enter name\n";
     cin >> name;
     cout << "enter mark of sub1\n";
@@ -24,47 +24,54 @@ void stud::data_manip(void)
     cin >> sub2;
     cout << "enter mark of sub3\n";
     cin >> sub3;
-
 }
 
-string stud::calc_grade(void)
+void stud::calc_grade(void)
 {
-    string grade;
     int avg = (sub1 + sub2 + sub3) / 3;
-    cout << "Grade: ";
     if (avg >= 91)
-        grade= "A+";
+        grade= "A + ";
     else if (avg >= 81)
         grade= "A";
     else if (avg >= 71)
-        grade ="B+";
+        grade ="B + ";
     else if (avg >= 61)
-        grade ="C+";
+        grade ="C + ";
     else if (avg >= 51)
         grade= "C";
     else if (avg >= 41)
-        grade = "D+";
+        grade = "D + ";
     else
         grade="D";
-    cout << grade<<endl;
-    return grade;
+    cout << "\naverage: " << avg;
 }
+void stud::disp_data(void)
+{
 
+    cout << "Student Name : " << name << endl;
+    cout << "Roll no : " << roll_no << endl;
+    cout << "Mark of subject 1 : " << sub1
+        << "\nMark of subject 2 : " << sub2
+        << "\nMarl of subject 3 : " << sub3 << endl;
+    calc_grade();
+    cout << "\nTotal Grade : " << grade<<endl;
+ }
 int main()
 {
-    string tf;
+    char tf;
     stud s;
-   while(true)
+    while (true)
     {
-        
         s.data_manip();
-        s.calc_grade();
+        s.disp_data();
         cout << "do you want to continue(y/n): ";
         cin >> tf;
-        if (tf == "y" or tf == "Y")
+        if (tf == 'y' or tf == 'Y')
             continue;
         else
+        {
             cout << "exiting...";
             return false;
+        }
     }
 }

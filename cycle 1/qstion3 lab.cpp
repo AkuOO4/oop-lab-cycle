@@ -3,24 +3,27 @@
 #include <string>
 using namespace std;
 
+int count = 100;
+
 class bank
 {
-    int acc_no[50],balance[50];
-    string cust_name[50], acc_type[50];
+    int acc_no,balance;
+    char cust_name[50], acc_type[50];
     
 public:
-    int acc_search(int ac_no);
-    void new_acc(int count);
-    void acc_details(int ac_no);//secret code needed for employee to see all details
-    void acc_transaction(int amt, int ac_no);//to withdraw or deposit
-    void acc_balance(int ac_no);
+    //int acc_search(int);
+    void new_acc(void);
+    void acc_details(void);    //secret code needed for employee to see all details
+    void acc_transaction(int amt);   //to withdraw or deposit
+    void acc_balance(void);
 
     
 };
+/*
 int bank::acc_search(int ac_no)
 {
     
-    int n = 0;//for searching the account no.
+    int n = 0;  //for searching the account no.
     int ac_check = acc_no[n];
     cout << "\nacc search check: " << ac_no;
     while (true)
@@ -32,52 +35,52 @@ int bank::acc_search(int ac_no)
     }
     return n;
 }
-void bank::new_acc(int count)// acc no is -ve check
+*/
+void bank::new_acc() 
 {
-    acc_no[count] = 0;
-    for (int i = 0; i < 4; i++)//assigning user a 5 digit acc no
-        acc_no[count] = acc_no[count] * 10 + rand()%10;
-
+    acc_no=count;
     cout << "\nenter the following details\n";
     std::cout << "\nname: ";
-    std::cin >> cust_name[count];
+    cin >> cust_name;
 
     int i = 0;
     while (i==0)//making the user renter until balance is above 500
     {
         std::cout << "\ninsert amount greater than 500: ";
-        std::cin >> balance[count];
-        if (balance[count] >500)
+        std::cin >> balance;
+        if (balance >500)
             i = 1;
         else
             continue;
     }
 
-    std::cout << "\nenter account type: ";
-    std::cin >> acc_type[count];
+    cout << "\nenter account type: ";
+    cin >> acc_type;
 
-    acc_details(acc_no[count]);
+    acc_details();
 
 }
 
-void bank::acc_details(int ac_no)
+void bank::acc_details()
 {
-    int n= acc_search(ac_no);
-    std::cout << "\naccount no." << "     name" << "     account type" << "    balance\n";
-    std::cout << "   " << acc_no[n] << "        " << cust_name[n] << "    " << acc_type[n] << "          " << balance[n];
+    //int n= acc_search(ac_no);
+    cout << "\naccount no.:  " << acc_no 
+        << "\nname: "<< cust_name 
+        << "\naccount type: " << acc_type 
+        << "\nbalance: " << balance;
 }
 
-void bank::acc_transaction(int amt,int ac_no)//withdraw//deposit
+void bank::acc_transaction(int amt)//withdraw//deposit
 {
-    int count = acc_search(ac_no);
+    
     int i = 0, abort=0;
     while (i == 0)//making the user enter until balance is above 500
     {
         
-        if ((balance[count] + amt) > 500)
+        if ((balance + amt) > 500)
         {
             i = 1;
-            balance[count] += amt;
+            balance += amt;
         }
         else
         {
@@ -92,27 +95,28 @@ void bank::acc_transaction(int amt,int ac_no)//withdraw//deposit
         }
     }
 }
-void bank::acc_balance(int ac_no)
+void bank::acc_balance()
 {
-    int count = acc_search(ac_no);
-    std::cout << "your balance is: " << balance[count];
-
+    std::cout << "your balance is: "<<balance<<endl;
 }
-
-
 
 int main()
 {
     while (true)
     {
-        int inp, ct = 0, ac_no;
-        bank b;
-        std::cout << "\n1. new acount" << "\n2. withdraw" << "\n3. deposit" << "\n4. balance enqiury" << "\n4. account statement\n";
+        
+        int inp,ac_no;
+        bank b[count];
+        cout << "\n1. new acount" 
+            << "\n2. withdraw"
+            << "\n3. deposit" 
+            << "\n4. balance enqiury" 
+            << "\n5. account statement\n";
         std::cin >> inp;
         if (inp == 1)
         {
-            b.new_acc(ct);
-            ct++;
+            b[count].new_acc();
+            count++;
         }
         if (inp == 2 or inp==3 or inp==4 or inp==5)
         {
@@ -126,22 +130,20 @@ int main()
             cin >> amt;
             amt = -amt;
             cout << "\n withdraw=" << amt;
-            b.acc_transaction(amt, ac_no);
+            b[ac_no].acc_transaction(amt);
         }
         else if (inp == 3)
         {
             int amt;
             cout << "\nenter amt to deposit: ";
             cin >> amt;
-            b.acc_transaction(amt, ac_no);
+            b[ac_no].acc_transaction(amt);
         }
         else if (inp == 4)
-            b.acc_balance(ac_no);
+            b[ac_no].acc_balance();
 
         else if (inp == 5)
-            b.acc_details(ac_no);
-
-        
+            b[ac_no].acc_details();
 
         string repeat;
         cout << "\nndo you want to continue(y/n): ";
@@ -149,8 +151,6 @@ int main()
         if (repeat == "y" or repeat == "Y")
             continue;
         else
-            return false;
-
-        
+            return false;         
     }
 }
