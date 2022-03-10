@@ -1,77 +1,85 @@
-
 #include <iostream>
 #include <cstring>
+
 using namespace std;
-class string
+class String
 {
-	char str;
+	char *str;
 	int len;
-	public:
-	string(){
-	len=0;
-	str= new char[len+1];
-	}
-	string(const char *s)
+public:
+	String()
 	{
-	len=strlen(s);
-	str=new char[len+1];
-	strcpy(str,s);
+		len = 0;
+		str =new char[len + 1];
+	}
+	String(const char *s)
+	{
+		len = strlen(s);
+		str = new char[len + 1];
+		strcpy(str, s);
 	}
 	void put_data()
-	{cin>>str;}
+	{
+		cin >> str;
+	}
 	void show_data()
-	{cout<<str<<endl;
-	cout<<str<<endl;}
-	
-	void compare(string,string);
-	void concat(string,string);
-	void len(void);
+	{
+		cout << str << endl;
+	}
+
+	void compare(String, String);
+	void concat(String, String);
+	void length(void);
 
 };
 
 
-void string::compare(string s1,string s2)//comparison
-{   
-	int a,b;
-	a=strlen(len(s1.str);
-	b=strlen(s1.str);
-	if(a>b){
-	cout<<s1.str<<"is larger\n";}
-	else if (a<b){
-	cout<<s1.str<<"is smaller \n";}
-	else
-	  cout<<"both are same"<<endl;
-
-} 
-
-void strng::concat(string s1,string s2)//concatination
+void String::compare(String s1, String s2)//comparison
 {
-    len=a.len+b.len;
-    delete str;
-    str=new cha[len+1];
-    strcpy(str,s1.str);
-    strcat(str,s2.str);
+	int a, b;
+	a = strlen(s1.str);
+	b = strlen(s2.str);
+	if (a > b) {
+		cout << s1.str << "is larger\n";
+	}
+	else if (a < b) {
+		cout << s1.str << "is smaller \n";
+	}
+	else
+		cout << "both are same" << endl;
+
 }
 
-void strng::len(void)//length
+void String::concat(String s1, String s2)//concatination
 {
-	cout<strlen(str);
+	len = s1.len + s2.len;
+	delete str;
+	str = new char[len + 1];
+	strcpy(str, s1.str);
+	strcat(str, s2.str);
+}
+
+void String::length(void)//length
+{
+	cout << strlen(str);
 }
 
 int main()
 {
-	string st1,st2,st3;
-	cout<<"enter string 1\n";
-	st1.put_data()
-	st1.len();
-	cout<<"enter string 2\n";
-	st2.put_data()
-	st2.len();
-	cout<<"comparing \n";
-	st3.compare(st1,st2)
-	cout<<"\nconcatinating\n";
-	st3.concat(st1,st2);
-	cout<<"finding length\n";
-	
-	st3.len();
+	String st1, st2, st3;
+	cout << "enter string 1\n";
+	st1.put_data();
+	cout<<"\nlength of string 1\n";
+	st1.length();
+	cout << "enter string 2\n";
+	st2.put_data();
+	cout<<"\nlength of string 2\n";
+	st2.length();
+	cout << "comparing \n";
+	st3.compare(st1, st2);
+	cout << "\nconcatinating\n";
+	st3.concat(st1, st2);
+	cout << "length after concatination is\n";
+	st3.length();
+	cout<<endl;
 }
