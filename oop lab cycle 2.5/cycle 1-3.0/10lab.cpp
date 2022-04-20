@@ -1,5 +1,4 @@
 #include <iostream>
-#include<cstring>
 using namespace std;
 
 int  total = 0;
@@ -27,6 +26,7 @@ class list
 {
     int code[10], quantity[10],price[10];
     int cust_code[10],cust_qty[10],cust_price[10];
+    string aks;
     string name[10],cust_list[10];
     
 public:
@@ -101,8 +101,8 @@ int list::remove(int c, int ct,int qty)
     
 }
 void list::purchase(int ct_purchase,int c,int qty)
-{   int code=search(c,ct_purchase)
-    if (remove(c,ct_purchase,qty)==0 or (quantity[c]<qty) or search)
+{   int code=search(c,ct_purchase);
+    if (remove(c,ct_purchase,qty)==0 or (quantity[c]<qty) or search==-1)
     {
         cout<<"\nPurchase not possible\n";
     }
@@ -237,4 +237,5 @@ int main()
             break;
         }
     }
+
 }
