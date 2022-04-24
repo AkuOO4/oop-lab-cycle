@@ -39,23 +39,31 @@ public:
 
 int main()
 {
+	int n=10;
+	int count=0;
 	cout << "\nPURE VIRTUAL FUNCTION AND ABSTRACT BASE CLASSES\n";
-	int n=2;
-	cout << "\nEnter details  of 2 employees: ";
-	information d[2];
-	employe* e[2];
+	
+	cout << "\nEnter details  of employees: ";
+	information d[n];
+	employe* e[n];
 	for (int i = 0; i < n; i++)
 	{
 		cout << "\nEmployee " << i + 1 << endl;
 		e[i] = &d[i];
 		e[i]->inp();
+		count++;
+		int ans;
+		cout<<"do you wnat to continue(1/0)";
+		cin>>ans;
+		if (ans==0)
+			break;
 	}
 	
 	cout << "\tDATA\n";
 
 	cout << "Sl.no" << setw(10) << right << "Name" << setw(15) << right << "ID number"  << setw(15) << right << "Anual Salary" << setw(20) << right << " Year of Service" << endl;
 
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < count; i++)
 	{
 		cout << "   " << i + 1 << ".  " << right<<setw(5);
 		e[i]->disp();

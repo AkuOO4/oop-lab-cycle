@@ -40,10 +40,10 @@ void String::compare(String s1, String s2)//comparison
 	a = strlen(s1.str);
 	b = strlen(s2.str);
 	if (a > b) {
-		cout << s1.str << "is larger\n";
+		cout << s1.str << " is larger\n";
 	}
 	else if (a < b) {
-		cout << s1.str << "is smaller \n";
+		cout << s1.str << " is smaller \n";
 	}
 	else
 		cout << "both are same" << endl;

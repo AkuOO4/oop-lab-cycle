@@ -5,6 +5,7 @@ class matrices {
 	int r, c;
 	int **m;
 public:
+		matrices(){};
 		matrices(int row,int col){
 		r = row;
 		c = col;
@@ -21,7 +22,7 @@ public:
 		delete m;
 		cout<<"matrix deleted ";
 	}
-	matrices(){};
+	
 	void get_matrix(void);
 	friend void matrix_add(matrices, matrices);
 	friend void matrix_mult(matrices, matrices);

@@ -60,5 +60,4 @@ int main()
     cin >> a >> b >> c;
     gamma g1(a, b, c);
     g1.show();
-
 }

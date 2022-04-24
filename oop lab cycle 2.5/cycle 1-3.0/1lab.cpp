@@ -3,7 +3,7 @@ using namespace std;
 
 class stud
 {
-    int roll_no,sub1,sub2,sub3;
+    int roll_no,math,computer,science;
     string name,grade;
     
 public:
@@ -18,17 +18,17 @@ void stud::data_manip(void)
     cin>>roll_no;
     cout << "enter name\n";
     cin >> name;
-    cout << "enter mark of sub1\n";
-    cin>>sub1 ;
-    cout << "enter mark of sub2\n";
-    cin >> sub2;
-    cout << "enter mark of sub3\n";
-    cin >> sub3;
+    cout << "enter mark of math\n";
+    cin>>math ;
+    cout << "enter mark of computer\n";
+    cin >> computer;
+    cout << "enter mark of science\n";
+    cin >> science;
 }
 
 void stud::calc_grade(void)
 {
-    int avg = (sub1 + sub2 + sub3) / 3;
+    int avg = (math + computer + science) / 3;
     if (avg >= 90)
         grade= "A  ";
     else if (avg >= 80)
@@ -37,18 +37,20 @@ void stud::calc_grade(void)
         grade ="C ";
     else if (avg >= 60)
         grade ="D ";
-    else  
-        grade= "F";
+    else if (avg >= 50)
+        grade= "E";
+    else
+        grade="F";
     cout << "\naverage: " << avg;
 }
 void stud::disp_data(void)
 {
-
+    cout<<"************************\n";
     cout << "Student Name : " << name << endl;
     cout << "Roll no : " << roll_no << endl;
-    cout << "Mark of subject 1 : " << sub1
-        << "\nMark of subject 2 : " << sub2
-        << "\nMarl of subject 3 : " << sub3 << endl;
+    cout << "Mark of math : " << math
+        << "\nMark of computer : " << computer
+        << "\nMarl of science : " << science << endl;
     calc_grade();
     cout << "\nTotal Grade : " << grade<<endl;
  }

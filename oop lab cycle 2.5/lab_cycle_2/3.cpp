@@ -27,7 +27,6 @@ float operator*(Vector v1, Vector v2)
     return m;
 }
 
-
 int main()
 {
     Vector a, b;
@@ -40,4 +39,3 @@ int main()
     int c = a * b;
     cout << "Vectors after multiplication = " << c << "\n";
 }
-

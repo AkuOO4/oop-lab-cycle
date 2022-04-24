@@ -31,7 +31,7 @@ public:
 };
 void item::put_data(void)
 {
-        cout<<"enter the matrix row by row : ";
+        cout<<"enter the matrix row by row :\n";
 	for(int i=0;i<r;i++)
 	{
 		for(int j=0;j<c;j++)
@@ -58,7 +58,7 @@ int main()
 {   
     int choice;
 	int r1,c1;
-	cout<<"enter the row and column of matrix 1\n";
+	cout<<"enter the row and column of matrix\n";
 	cin>>r1>>c1;
     item m(r1,c1);
 	m.put_data();

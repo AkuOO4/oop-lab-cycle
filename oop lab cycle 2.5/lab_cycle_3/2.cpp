@@ -45,15 +45,18 @@ public:
 
 int main()
 {
+	int choice;
+	do{
 	int ch;
 	cout << "\n1. Integer Calculations\n2.Fractional number calculation\n";
 	cin >> ch;
 	if (ch == 1)
 	{
+		Calculator<int> C1;
 		int dec;
 		cout << "\n\n1. addition\n2. subtraction\n3. multiplication\n4. divition\n\n";
 		cin >> dec;
-		Calculator<int> C1;
+		
 		switch (dec)
 		{
 		case 1:
@@ -75,10 +78,11 @@ int main()
 	}
 	else
 	{
+		Calculator<float> C2;
 		int dec;
 		cout << "1. addition\n2. subtraction\n3. multiplication\n4. divition\n";
 		cin >> dec;
-		Calculator<float> C2;
+		
 		switch (dec)
 		{
 		case 1:
@@ -98,5 +102,11 @@ int main()
 			break;
 		}
 	}
+	cout<<"\nDo you want to conntinue(1/0) ";
+	cin>>choice;
+	}while (choice==1 );
 	cout<<endl;
+	
+
+	
 }

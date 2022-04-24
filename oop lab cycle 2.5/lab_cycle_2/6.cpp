@@ -25,31 +25,31 @@ public:
 class test :public virtual student
 {
 protected:
-    int sub1, sub2, sub3;
+    int math, science, computer;
 public:
     test():student()
     {
-        cout << "enter sub1,2,3 mark: ";
-        cin >> sub1>>sub2>>sub3;
+        cout << "enter math,science,computer marks respectively: ";
+        cin >> math>>science>>computer;
    
     };
     test(int s1, int s2, int s3)
     {
-        sub1 == s1, sub2 = s2, sub3 = s3;
+        math == s1, science = s2, computer = s3;
     }
 };
 
 class sports:public virtual student
 {
 protected:
-    int sport1, sport2;
+    int sport1;
 public:
     sports():student()
     {
-        cout << "sports sub 1 and 2 mark: ";
-        cin >> sport1>>sport2;
+        cout << "sports mark: ";
+        cin >> sport1;
     };
-    sports(int sp1, int sp2) { sport1 = sp1, sport2 = sp2; }
+    sports(int sp1) { sport1 = sp1; }
 };
 
 class result : public test,public sports
@@ -59,7 +59,7 @@ protected:
 public:
     result() :sports(), test() {};
     void show_mark(void) { cout << "\nscore is: " << score << endl; }
-    void calc_mark(void){score= sub1 + sub2 + sub3 + sport1 + sport2;}
+    void calc_mark(void){score= math + science + computer + sport1 ;}
 };
 
 int main()
